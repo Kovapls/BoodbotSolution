@@ -26,5 +26,28 @@ namespace Boodbot.Modules
         {
             await Context.Channel.SendMessageAsync("@" + Context.User + " You suck.");
         }
+
+        [Command("FAQ")] //FAQ page will be linked like this
+        public async Task FAQ()
+        {
+            await Context.Channel.SendMessageAsync("The FAQ for Boodbot can be found at: https://github.com/Kovapls/BoodbotSolution/blob/master/README.md");
+        }
+
+        [Command("Choose")] //choses between one or more options
+        public async Task ChoseOne([Remainder]string message)
+        {
+            string[] options = message.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
+
+            Random r = new Random();
+            string selection = options[r.Next(0, options.Length)];
+
+            var embed = new EmbedBuilder();
+            embed.WithTitle("Choice for " + Context.User.Username);
+            embed.WithDescription(selection);
+            embed.WithColor(new Color(47, 91, 229));
+            embed.WithThumbnailUrl("https://i.imgur.com/OpKAELs.gif");
+
+            await Context.Channel.SendMessageAsync("", false, embed);
+        }
     }
 }

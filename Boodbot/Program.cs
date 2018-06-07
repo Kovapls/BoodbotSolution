@@ -18,6 +18,8 @@ namespace Boodbot
 
         public async Task StartAsync()
         {
+
+
             if (Config.bot.token == "" || Config.bot.token == null) return; //ensures the token is real and exists and breaks if it isn't
             _client = new DiscordSocketClient(new DiscordSocketConfig
             {
