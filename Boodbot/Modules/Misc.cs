@@ -50,6 +50,25 @@ namespace Boodbot.Modules
             await Context.Channel.SendMessageAsync("", false, embed);
         }
 
+        [Command("Bill")]
+        public async Task BillNye()
+        {
+            Random r = new Random();
+
+            int numberGenned = r.Next(1,5);
+
+            if (numberGenned == 4)
+            {
+                await Context.Channel.SendMessageAsync("https://i.imgur.com/xPLHck1.jpg");
+            }
+            else
+            {
+                await Context.Channel.SendMessageAsync("BILL BILL BILL BILL BILL BILL! \n\n https://www.youtube.com/watch?v=UtVJdPfm0F8");
+            }
+            
+        }
+
+
         [Command("Commands")] //command listng
         public async Task Commands()
         {
