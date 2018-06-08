@@ -24,7 +24,7 @@ namespace Boodbot.Modules
         [Command("Hello")] //still working on this command
         public async Task Hello([Remainder]string message)
         {
-            await Context.Channel.SendMessageAsync("@" + Context.User + " You suck.");
+            await Context.Channel.SendMessageAsync("<@" + Context.User.Id + ">" + " You suck.");
         }
 
         [Command("FAQ")] //FAQ page will be linked like this
@@ -48,6 +48,12 @@ namespace Boodbot.Modules
             embed.WithThumbnailUrl("https://i.imgur.com/OpKAELs.gif");
 
             await Context.Channel.SendMessageAsync("", false, embed);
+        }
+
+        [Command("Commands")] //command listng
+        public async Task Commands()
+        {
+            await Context.Channel.SendMessageAsync("Commands currently implemented are: !Hello, !FAQ, !Choose, !Echo. I will add more whenever I feel like it.");
         }
     }
 }

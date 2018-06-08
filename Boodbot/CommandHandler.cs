@@ -12,17 +12,20 @@ namespace Boodbot
     class CommandHandler
     {
         DiscordSocketClient _client;
+        DiscordSocketClient _client2;
         CommandService _service;
 
         public async Task InitializeAsync(DiscordSocketClient client)
         {
             _client = client;
+            _client2 = client; //I need to stop.
             _service = new CommandService();
             await _service.AddModulesAsync(Assembly.GetEntryAssembly());
             _client.MessageReceived += HandleCommandAsync;
+            _client2.MessageReceived += HandleKeywordAsync; //this is getting bad
         }
 
-        private async Task HandleCommandAsync(SocketMessage s)
+        private async Task HandleCommandAsync(SocketMessage s) //handles the command parsing
         {
             var msg = s as SocketUserMessage;
             if (msg == null) return;
@@ -43,6 +46,31 @@ namespace Boodbot
 
 
             }
+        }
+
+        private async Task HandleKeywordAsync(SocketMessage s) //this is my test method
+        {
+            var msg = s as SocketUserMessage;
+            if (msg == null) return;
+            var context = new SocketCommandContext(_client2, msg);
+            //int argPos = 0;
+            string msgUpper = msg. Content.ToString().ToUpper();   //ToString().ToUpper();
+            //string contextSender = msg.Id.ToString(); //msg.Author.ToString();
+            
+
+            if (msgUpper.Contains("BIG MOOD"))
+            {
+                await context.Channel.SendMessageAsync("<@" + msg.Author.Id + ">" + " Bood."); //mention
+            }
+            else if (msgUpper.Contains("B I G M O O D"))
+            {
+                await context.Channel.SendMessageAsync("<@" + msg.Author.Id + ">" + " B O O D."); //mention
+            }
+            else if (msgUpper.Contains("BOOD?"))
+            {
+                await context.Channel.SendMessageAsync("<@" + msg.Author.Id + ">" + " Yeah, **B**ig M**ood** \n\n" + " https://youtu.be/CHzsIjquBRA?t=22s"); //mention
+            }
+
         }
     }
 }
