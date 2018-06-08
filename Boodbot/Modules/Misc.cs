@@ -72,7 +72,7 @@ namespace Boodbot.Modules
         [Command("Commands")] //command listng
         public async Task Commands()
         {
-            await Context.Channel.SendMessageAsync("Commands currently implemented are: !Hello, !FAQ, !Choose, !Echo. I will add more whenever I feel like it.");
+            await Context.Channel.SendMessageAsync("Commands currently implemented are: !Hello, !FAQ, !Choose, !Bill, !Echo. I will add more whenever I feel like it.");
         }
     }
 }
