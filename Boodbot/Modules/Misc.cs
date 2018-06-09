@@ -50,7 +50,7 @@ namespace Boodbot.Modules
             await Context.Channel.SendMessageAsync("", false, embed);
         }
 
-        [Command("Bill")]
+        [Command("Bill")] //This command generates a fun, nostalgic song. Usually.
         public async Task BillNye()
         {
             Random r = new Random();
@@ -69,11 +69,11 @@ namespace Boodbot.Modules
             
         }
 
-        [Command("Khaled")]
+        [Command("Khaled")] //this command generates motivation.
         public async Task DJKhaled()
         {
             await Context.Channel.SendMessageAsync("I believe in you \n\n " +
-                "                                   https://www.youtube.com/watch?v=n5qJq1H-nUI");
+                                                   "https://www.youtube.com/watch?v=n5qJq1H-nUI");
         }
 
 
