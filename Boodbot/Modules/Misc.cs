@@ -63,16 +63,24 @@ namespace Boodbot.Modules
             }
             else
             {
-                await Context.Channel.SendMessageAsync("BILL BILL BILL BILL BILL BILL! \n\n https://www.youtube.com/watch?v=UtVJdPfm0F8");
+                await Context.Channel.SendMessageAsync("BILL BILL BILL BILL BILL BILL! \n\n " +
+                    "                                   https://www.youtube.com/watch?v=UtVJdPfm0F8");
             }
             
+        }
+
+        [Command("Khaled")]
+        public async Task DJKhaled()
+        {
+            await Context.Channel.SendMessageAsync("I believe in you \n\n " +
+                "                                   https://www.youtube.com/watch?v=n5qJq1H-nUI");
         }
 
 
         [Command("Commands")] //command listng
         public async Task Commands()
         {
-            await Context.Channel.SendMessageAsync("Commands currently implemented are: !Hello, !FAQ, !Choose, !Bill, !Echo. " +
+            await Context.Channel.SendMessageAsync("Commands currently implemented are: !Hello, !FAQ, !Choose, !Bill, !Echo, !Khaled. " +
                 "\n Explanation and Syntax can be found here: " +
                 "\n https://github.com/Kovapls/BoodbotSolution/blob/master/Commands " +
                 "\n\n I will add more whenever I feel like it.");
