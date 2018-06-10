@@ -42,4 +42,4 @@ namespace Boodbot
         public string token;
         public string cmdPrefix;
     }
-}
+} 

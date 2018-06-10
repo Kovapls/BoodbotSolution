@@ -86,4 +86,4 @@ namespace Boodbot.Modules
                 "\n\n I will add more whenever I feel like it.");
         }
     }
-}
+} 
