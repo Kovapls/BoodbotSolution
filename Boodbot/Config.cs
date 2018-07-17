@@ -41,5 +41,7 @@ namespace Boodbot
     {
         public string token;
         public string cmdPrefix;
+        public string botID;
+        public string KovaID;
     }
 } 

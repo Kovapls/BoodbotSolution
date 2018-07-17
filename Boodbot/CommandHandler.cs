@@ -70,6 +70,15 @@ namespace Boodbot
             {
                 await context.Channel.SendMessageAsync("<@" + msg.Author.Id + ">" + " Yeah, **B**ig M**ood** \n\n" + " https://youtu.be/CHzsIjquBRA?t=22s"); //mention
             }
+            else if (msgUpper.Contains("<@" + Config.bot.botID + ">") && msg.Author.Id.ToString() != Config.bot.botID)
+            {
+                await context.Channel.SendMessageAsync("<@" + msg.Author.Id + ">" + " Dont @ me."); //This is for when someone @'s my bot
+            }
+            else if (msgUpper.Contains("<@" + Config.bot.KovaID + ">") && msg.Author.Id.ToString() != Config.bot.botID)
+            {
+                await context.Channel.SendMessageAsync("<@" + msg.Author.Id + ">" + " Don't @ him, either."); //For when someone @'s me
+            }
+
 
         }
     }
