@@ -18,11 +18,11 @@ namespace Boodbot
         public async Task InitializeAsync(DiscordSocketClient client)
         {
             _client = client;
-            _client2 = client; //I need to stop.
+            _client2 = client;
             _service = new CommandService();
             await _service.AddModulesAsync(Assembly.GetEntryAssembly());
             _client.MessageReceived += HandleCommandAsync;
-            _client2.MessageReceived += HandleKeywordAsync; //this is getting bad
+            _client2.MessageReceived += HandleKeywordAsync; 
         }
 
         private async Task HandleCommandAsync(SocketMessage s) //handles the command parsing
@@ -54,7 +54,7 @@ namespace Boodbot
             if (msg == null) return;
             var context = new SocketCommandContext(_client2, msg);
             //int argPos = 0;
-            string msgUpper = msg. Content.ToString().ToUpper();   //ToString().ToUpper();
+            string msgUpper = msg.Content.ToString().ToUpper();   //ToString().ToUpper();
             //string contextSender = msg.Id.ToString(); //msg.Author.ToString();
             
 
@@ -69,6 +69,10 @@ namespace Boodbot
             else if (msgUpper.Contains("BOOD?"))
             {
                 await context.Channel.SendMessageAsync("<@" + msg.Author.Id + ">" + " Yeah, **B**ig M**ood** \n\n" + " https://youtu.be/CHzsIjquBRA?t=22s"); //mention
+            }
+            else if (msgUpper.Contains("BLEASE") && msg.Author.Id.ToString() != Config.bot.botID)
+            {
+                await context.Channel.SendMessageAsync("<@" + msg.Author.Id + ">" + " I'll Blease you."); //what happens if someone says "blease"
             }
             else if (msgUpper.Contains("<@" + Config.bot.botID + ">") && msg.Author.Id.ToString() != Config.bot.botID)
             {

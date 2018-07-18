@@ -76,6 +76,11 @@ namespace Boodbot.Modules
                                                    "https://www.youtube.com/watch?v=n5qJq1H-nUI");
         }
 
+        [Command("Rate")] //this command allows you to rate the bot
+        public async Task BotRate()
+        {
+            await Context.Channel.SendMessageAsync("Thank you for rating '5'! Your feedback is appreciated!");
+        }
 
         [Command("Commands")] //command listng
         public async Task Commands()
