@@ -77,7 +77,7 @@ namespace Boodbot.Modules
         }
 
         [Command("Rate")] //this command allows you to rate the bot
-        public async Task BotRate()
+        public async Task BotRate([Remainder] string message)
         {
             await Context.Channel.SendMessageAsync("Thank you for rating '5'! Your feedback is appreciated!");
         }
