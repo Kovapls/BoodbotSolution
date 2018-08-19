@@ -105,7 +105,9 @@ namespace Boodbot.Modules
         [Command("Commands")] //command listng
         public async Task Commands()
         {
-            await Context.Channel.SendMessageAsync("Commands currently implemented are: !Hello, !FAQ, !Choose, !Bill, !Echo, !Khaled. " +
+            await Context.Channel.SendMessageAsync("Commands currently implemented are: !Hello, !FAQ, !Choose, !Bill," +
+                                                    " !Echo, !Khaled, !September, !Rate. " +
+
                 "\n Explanation and Syntax can be found here: " +
                 "\n https://github.com/Kovapls/BoodbotSolution/blob/master/Commands " +
                 "\n\n I will add more whenever I feel like it.");
