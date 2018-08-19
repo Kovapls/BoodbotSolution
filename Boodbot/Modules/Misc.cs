@@ -76,6 +76,26 @@ namespace Boodbot.Modules
                                                    "https://www.youtube.com/watch?v=n5qJq1H-nUI");
         }
 
+        [Command("September")] //checks to see if it is September, and more
+        public async Task IsSeptember()
+        {
+            if (DateTime.Today.Month == 9)
+            {
+                if (DateTime.Today.Day == 21)
+                {   //Party Time! Month is September, Date is the 21st
+                    await Context.Channel.SendMessageAsync("DO YOU REMEMBER?! \n\n " + "https://www.youtube.com/watch?v=pUAZnjFbOyI");
+                }
+                else
+                {   //if month is Septmeber, but date is not the 21st
+                    await Context.Channel.SendMessageAsync("<@" + Context.User.Id + ">" + "Shhhh, not yet.");
+                }
+            }
+            else
+            {   //if month is not September
+                await Context.Channel.SendMessageAsync("<@" + Context.User.Id + ">" + "No, it is not September.");
+            }
+        }
+
         [Command("Rate")] //this command allows you to rate the bot
         public async Task BotRate([Remainder] string message)
         {
