@@ -57,6 +57,12 @@ namespace Boodbot
             string msgUpper = msg.Content.ToString().ToUpper();   //ToString().ToUpper();
             //string contextSender = msg.Id.ToString(); //msg.Author.ToString();
             
+            if (context.User.IsBot == true && context.User.Id != 453991944050311198)
+            {
+                await context.Channel.SendMessageAsync("<@" + context.User.Id + ">" + "Oy. I am the superior bot. " +
+                                                        "This town ain't big enough for the both of us");
+            }
+
 
             if (msgUpper.Contains("BIG MOOD"))
             {

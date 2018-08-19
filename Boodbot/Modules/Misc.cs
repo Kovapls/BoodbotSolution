@@ -87,12 +87,12 @@ namespace Boodbot.Modules
                 }
                 else
                 {   //if month is Septmeber, but date is not the 21st
-                    await Context.Channel.SendMessageAsync("<@" + Context.User.Id + ">" + "Shhhh, not yet.");
+                    await Context.Channel.SendMessageAsync("<@" + Context.User.Id + ">" + " Shhhh, not yet.");
                 }
             }
             else
             {   //if month is not September
-                await Context.Channel.SendMessageAsync("<@" + Context.User.Id + ">" + "No, it is not September.");
+                await Context.Channel.SendMessageAsync("<@" + Context.User.Id + ">" + " No, it is not September.");
             }
         }
 
